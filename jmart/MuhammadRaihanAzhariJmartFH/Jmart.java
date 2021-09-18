@@ -69,6 +69,10 @@ public class Jmart
         hasil = (int)(0.05 * price);
         return hasil;
     }
+    
+     public static void create(Product product){
+        
+    }
 
 
     public static void main(String[] args){
@@ -94,13 +98,13 @@ public class Jmart
         Belanja.getComissionMultiplier();
         Belanja.getAdjustedPrice(100000);
         Belanja.getAdminFee(100000);
-
-
-
+        
 
 
         
     }
+    
+   
     
     
 }
