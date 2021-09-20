@@ -21,14 +21,12 @@ public class PriceTag
     {
         this.price = price;
         discount = 0;
-        
     }
     
       public PriceTag(double price, double discount)
     {
         this.price = price;
         this.discount = discount;
-        
     }
     
     public double getAdjustedPrice (){
@@ -55,7 +53,7 @@ public class PriceTag
             return 0.0;
         }
         else{
-            return (this.price - this.discount);
+            return (price - discount);
         }
     }
     

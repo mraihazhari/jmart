@@ -70,9 +70,16 @@ public class Jmart
         return hasil;
     }
     
-     public static void create(Product product){
-        
-    }
+
+     public static Product createProduct(){
+         return null;
+     }
+     public static Product createCoupun(){
+         return null;
+     }
+     public static Product ShipmentDuration(){
+         return null;
+     }
 
 
     public static void main(String[] args){

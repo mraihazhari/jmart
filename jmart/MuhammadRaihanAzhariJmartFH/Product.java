@@ -15,12 +15,14 @@ public class Product
     public int weight;
     public boolean conditionUsed;
     public PriceTag priceTag;
+    public ProductCategory category ;
     public ProductRating rating;    
-    public Product(String name, int weight, boolean conditionUsed, PriceTag priceTag){
+    public Product(String name, int weight, boolean conditionUsed, PriceTag priceTag, ProductCategory category){
         this.id = idCounter++;
         this.name = name;
         this.weight = weight;
         this.conditionUsed = conditionUsed;
+        this.category = category;
         this.priceTag = priceTag;
     }
 
