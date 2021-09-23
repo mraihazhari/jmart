@@ -10,7 +10,7 @@ package MuhammadRaihanAzhariJmartFH;
 public class PriceTag
 {
   
-    public static double COMMISSION_MULTIPLIER =0.05;
+    public static double COMMISSION_MULTIPLIER = 0.05;
     public static double BOTTOM_PRICE = 20000.0;
     public static double BOTTOM_FEE = 1000.0;
     public double discount;
@@ -20,7 +20,7 @@ public class PriceTag
     public PriceTag(double price)
     {
         this.price = price;
-        discount = 0;
+        this.discount = 0;
     }
     
       public PriceTag(double price, double discount)
@@ -46,6 +46,7 @@ public class PriceTag
     }
     
     private double getDiscountedPrice(){
+        
         if(discount > 100.0){
             discount = 100.0;
         }
@@ -53,12 +54,8 @@ public class PriceTag
             return 0.0;
         }
         else{
-            return (price - discount);
+            return (price - ((discount / 100) * price));
         }
     }
     
-    
-    
-
-   
 }

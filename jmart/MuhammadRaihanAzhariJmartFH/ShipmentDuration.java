@@ -22,15 +22,19 @@ public class ShipmentDuration
     }
     
     public ShipmentDuration(ShipmentDuration... args){
-       //ShipmentDuration.KARGO = 00010000;
-       // ShipmentDuration.INSTANT | ShipmentDuration.REGULER = 00000101;
-       // ShipmentDuration.KARGO | ShipmentDuration.SAME_DAY = 00010010;
-       // ShipmentDuration.INSTANT | ShipmentDuration.SAME_DAY | ShipmentDuration.NEXT_DAY = (00000111);
+        for(ShipmentDuration i: args){
+            this.bit |= i.bit;
+        }
         
     }
     
-   // public boolean isDuration(ShipmentDuration reference){
-        
-   // }
- 
+    public boolean isDuration(ShipmentDuration reference){
+        if((this.bit & reference.bit) == reference.bit){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
 }

@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Coupun
+public class Coupon
 {
     enum Type{
         DISCOUNT, REBATE;
@@ -21,7 +21,7 @@ public class Coupun
     private boolean used;
 
     
-    public Coupun(String name, int code,Type type, double cut, double minimum){
+    public Coupon(String name, int code,Type type, double cut, double minimum){
         this.name = name;
         this.code = code;
         this.type = type;

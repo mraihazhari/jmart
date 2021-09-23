@@ -18,7 +18,8 @@ public class Product
     public ProductCategory category ;
     public ProductRating rating;    
     public Product(String name, int weight, boolean conditionUsed, PriceTag priceTag, ProductCategory category){
-        this.id = idCounter++;
+        this.idCounter = idCounter + 1;
+        this.id = idCounter;
         this.name = name;
         this.weight = weight;
         this.conditionUsed = conditionUsed;
