@@ -44,8 +44,14 @@ public class Coupon
         }
     }
     public double apply(PriceTag priceTag){
-        used = true;
-        return(priceTag.getAdjustedPrice() - cut);
+        this.used = true;
+        if(this.type == type.REBATE){
+           return(priceTag.getAdjustedPrice() - this.cut); 
+        }
+        else{
+            return ((1 - this.cut) * priceTag.getAdjustedPrice());
+        }
+        
     }
     
 }
