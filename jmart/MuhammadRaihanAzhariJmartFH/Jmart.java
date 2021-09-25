@@ -15,8 +15,10 @@ public class Jmart
      public static Product createProduct(){
          return null;
      }
-     public static Product createCoupun(){
-         return null;
+     public static Coupon createCoupon(){
+         Coupon kupon1 = new Coupon("GratisOngkir", 12345, Coupon.Type.REBATE, 1000.0, 500.0);
+         kupon1.isUsed();
+         return kupon1;
      }
      public static Product ShipmentDuration(){
          return null;

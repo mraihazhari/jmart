@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Coupon
+public class Coupon implements FileParser
 {
     enum Type{
         DISCOUNT, REBATE;
@@ -52,6 +52,15 @@ public class Coupon
             return ((1 - this.cut) * priceTag.getAdjustedPrice());
         }
         
+    }
+    public boolean read (String content){
+        return false;
+    }
+    public Object write(){
+        return null;
+    }
+    public Object newInstance(String content){
+        return 0;
     }
     
 }
