@@ -7,23 +7,19 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Complaint extends Transaction implements FileParser
+public class Complaint extends Recognizable implements FileParser
 {
     // instance variables - replace the example below with your own
     public int paymentId;
     public String desc;
+    public String date;
     
-    public Complaint(int id, Payment payment, String descs){
-        super(id, 1, 1);
+    
+    public Complaint (int id, String desc){
+        super(id);
+        this.paymentId = id;
         this.desc = desc;
-    }
-    
-    public Complaint(int id, int buyerId, int storeId, int paymentId, String desc )
-    {
-      super(id, buyerId, storeId);
-      this.paymentId = paymentId;
-      this.desc = desc;
-      
+        this.date = "String apapun";
     }
     public boolean read (String content){
         return false;

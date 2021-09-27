@@ -31,6 +31,11 @@ public class Account extends Recognizable implements FileParser
     public Object newInstance(String content){
         return 0;
     }
+    
+    public String toString(){
+        Account akun = new Account(1,"Ramdhan", "ramdhanganteng@gmail.com","gu3G4ntEnG");
+        return akun.name;
+    }
    
 
 }

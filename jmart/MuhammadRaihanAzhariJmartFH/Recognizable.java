@@ -17,18 +17,17 @@ public class Recognizable
         this.id = id;
     }
     
-    
    public boolean equals(Recognizable recognizable){
         return true;
    }
     
    public boolean equals(Object object){
         if(object instanceof Recognizable){
-            return true;
+            Recognizable obj = (Recognizable)object;
+            if(obj.id == id){
+               return true; 
+            }
        }
        return false;
    }
-   
-
-    
 }

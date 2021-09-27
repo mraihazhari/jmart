@@ -9,16 +9,18 @@ package MuhammadRaihanAzhariJmartFH;
  */
 public class Product implements FileParser
 {
-    private int idCounter;
     public int id;
+    public int idCounter;
+    public int storeId;
     public String name;
     public int weight;
     public boolean conditionUsed;
     public PriceTag priceTag;
     public ProductCategory category ;
     public ProductRating rating; 
-    public int storeld;
-    public Product(int id, int storeId, String name, int weight, boolean conditionUsed, PriceTag priceTag, ProductCategory category){
+    public Shipment.MultiDuration multiDuration;
+    
+    public Product(int id, int storeId, String name, int weight, boolean conditionUsed, PriceTag priceTag, ProductCategory category, Shipment.MultiDuration multiDuration){
         this.idCounter = idCounter + 1;
         this.id = idCounter;
         this.name = name;
@@ -29,6 +31,11 @@ public class Product implements FileParser
     }
     public Product(int id,Store store,String name, int weight, boolean conditionUsed,PriceTag priceTag, ProductCategory category){
         
+    }
+    
+    public String toString(){
+        this.name = "Harry Potter";
+        return "a";
     }
     public boolean read (String content){
         return false;
