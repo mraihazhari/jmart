@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Invoice extends Recognizable implements FileParser
+public abstract class Invoice extends Recognizable implements FileParser
 {
   
      enum Status{

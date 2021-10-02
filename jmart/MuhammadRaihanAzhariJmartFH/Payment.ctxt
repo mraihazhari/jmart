@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Payment
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Recognizable\ here.\r\n\r\n\ @author\ (Muhammad\ Raihan\ Azhari)\r\n\ @version\ (25\ Sept\ 2021)\r\n
-comment1.params=id\ buyerId\ storeId\ productId\ shipment
+comment1.params=id\ buyerId\ productId\ productCount\ shipment
 comment1.target=Payment(int,\ int,\ int,\ int,\ Shipment)
 comment2.params=
 comment2.target=Invoice\ perform()

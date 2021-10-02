@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Recognizable
+public abstract class Recognizable
 {
    
     public int id;
@@ -18,7 +18,7 @@ public class Recognizable
     }
     
    public boolean equals(Recognizable recognizable){
-        return true;
+       return recognizable.id == id;
    }
     
    public boolean equals(Object object){

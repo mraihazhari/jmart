@@ -1,6 +1,9 @@
 package MuhammadRaihanAzhariJmartFH;
 
 
+import java.util.Date;
+
+
 /**
  * Write a description of class Recognizable here.
  *
@@ -10,16 +13,14 @@ package MuhammadRaihanAzhariJmartFH;
 public class Complaint extends Recognizable implements FileParser
 {
     // instance variables - replace the example below with your own
-    public int paymentId;
     public String desc;
-    public String date;
+    public Date date;
     
     
     public Complaint (int id, String desc){
         super(id);
-        this.paymentId = id;
         this.desc = desc;
-        this.date = "String apapun";
+        this.date = new Date();
     }
     public boolean read (String content){
         return false;
