@@ -18,8 +18,8 @@ public class Store extends Recognizable implements FileParser
     public String address;
     public String phoneNumber;
     
-    public static final Pattern REGEX_PHONE = Pattern.compile("n{9,12}]");
-    public static final Pattern REGEX_NAME = Pattern.compile("[^(A-Z)|n{4,20}]");
+    public static final Pattern REGEX_PHONE = Pattern.compile("[n{9,12}]");
+    public static final Pattern REGEX_NAME = Pattern.compile("[^(A-Z][n{4,20}]");
     
     
   
