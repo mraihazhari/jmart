@@ -1,5 +1,8 @@
 package MuhammadRaihanAzhariJmartFH;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * Write a description of class Recognizable here.
@@ -12,6 +15,8 @@ public class Account extends Recognizable implements FileParser
     String name;
     String email;
     String password;
+    public static final Pattern REGEX_EMAIL = Pattern.compile("^([A-Za-z0-9|.|*|~|_|&]*?)@[A-Za-z0-9][A-Za-z0-9|-|.]");
+    public static final Pattern REGEX_PASSWORD = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,100}$");
     
     public Account(int id, String name, String email, String password)
     {  
@@ -20,6 +25,20 @@ public class Account extends Recognizable implements FileParser
        this.email = email;
        this.password = password;
        this.id = id;
+    }
+    
+     public boolean validate(){
+        Matcher matcher1 = REGEX_EMAIL.matcher(email);
+        Matcher matcher2 = REGEX_PASSWORD.matcher(password);
+        
+        if(matcher1.find() && matcher2.find() == true){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+        
     }
     
     public boolean read (String content){
@@ -33,8 +52,8 @@ public class Account extends Recognizable implements FileParser
     }
     
     public String toString(){
-        Account akun = new Account(1,"Ramdhan", "ramdhanganteng@gmail.com","gu3G4ntEnG");
-        return akun.name;
+        validate();
+        return "ID: "+id+" Name: "+name+" email: "+email+" password: "+password+" status_REGECX: "+ validate();
     }
    
 

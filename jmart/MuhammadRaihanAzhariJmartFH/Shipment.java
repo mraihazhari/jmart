@@ -28,7 +28,7 @@ public class Shipment implements FileParser
     public static final Duration NEXT_DAY = new Duration((byte) (1<<2));
     public static final Duration REGULER = new Duration((byte)(1<<3));
     public static final Duration KARGO = new Duration((byte)(1<<4));
-    public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+    public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMM dd yyyy");
     public byte bit;
     
     private Duration(byte bit){
@@ -36,11 +36,27 @@ public class Shipment implements FileParser
     }
     
     public String getEstimatedArrival(Date reference){
-        if(bit == ((byte)(1<<0))){
-            return "";
+      Calendar newDate = Calendar.getInstance();
+      if(bit == (1<<0)){
+          return ESTIMATION_FORMAT.format(reference.getTime());
+      }
+      else if(bit == (1<<1)){
+          return ESTIMATION_FORMAT.format(reference.getTime());
+      }
+      else if (bit == (1<<2)){
+          newDate.setTime(reference);
+          newDate.add(Calendar.DATE, 1);
+          return ESTIMATION_FORMAT.format(newDate.getTime());
+      }
+      else if (bit == (1<<3)){
+          newDate.setTime(reference);
+          newDate.add(Calendar.DATE, 2);
+          return ESTIMATION_FORMAT.format(newDate.getTime());
       }
       else{
-          return "";
+          newDate.setTime(reference);
+          newDate.add(Calendar.DATE, 5);
+          return ESTIMATION_FORMAT.format(newDate.getTime());
       }
    }
         

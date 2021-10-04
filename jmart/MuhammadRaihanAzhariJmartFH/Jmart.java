@@ -23,11 +23,13 @@ public class Jmart
      public static Product ShipmentDuration(){
          return null;
      }
-
+    
 
     public static void main(String[] args){
-    
-        
+        Account akun1 = new Account(1, "Azhari", "azhariraihan2002@gmail.com", "luLusoop123");
+        System.out.println(akun1.toString());
+        Complaint komplen1 = new Complaint(1, "Kurir Salah Alamat");
+        System.out.println(komplen1.toString());
     }
     
    
