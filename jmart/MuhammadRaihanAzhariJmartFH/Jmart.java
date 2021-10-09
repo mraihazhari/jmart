@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class Jmart
 {
   
-     public static Product createProduct(){
+	public static Product createProduct(){
          return null;
      }
      public static Coupon createCoupon(){

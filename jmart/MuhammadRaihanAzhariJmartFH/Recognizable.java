@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public abstract class Recognizable
+public class Recognizable implements Comparable<Recognizable>
 {
    
     public int id;
@@ -15,6 +15,14 @@ public abstract class Recognizable
     protected Recognizable(int id)
     {
         this.id = id;
+    }
+    
+    public static  int getClosingId() {
+    	return 0;
+    }
+    
+    public static <T> int setClosingId(int id) {
+    	return 0;
     }
     
    public boolean equals(Recognizable recognizable){
@@ -30,4 +38,10 @@ public abstract class Recognizable
        }
        return false;
    }
+   
+   public int compareTo(Recognizable recognizable) {
+	   return (this.id / recognizable.id);
+   }
+   
+   
 }
