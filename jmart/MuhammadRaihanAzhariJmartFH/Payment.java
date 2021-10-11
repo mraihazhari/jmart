@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Payment extends Invoice implements FileParser
+public class Payment extends Invoice
 {
    
     public int productCount;
@@ -29,15 +29,7 @@ public class Payment extends Invoice implements FileParser
     public boolean validate(){
         return true;
     }
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
+   
 
    
 }

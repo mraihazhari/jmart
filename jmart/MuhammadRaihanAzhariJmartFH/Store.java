@@ -11,33 +11,28 @@ import java.util.regex.Pattern;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Store extends Recognizable implements FileParser
+public class Store extends Recognizable
 {
     
     public String name;
     public String address;
     public String phoneNumber;
+    public double balance;
+    
     
     public static final Pattern REGEX_PHONE = Pattern.compile("^[0-9]{9,12}$");
     public static final Pattern REGEX_NAME = Pattern.compile("^[A-Z][A-Za-z| ]{3,19}$");
     
     
   
-    public Store(int accountId, String name,String address, String phoneNumber){
-       super(accountId);
+    public Store(String name,String address, String phoneNumber, double balance){
        this.name = name;
        this.address = address;
        this.phoneNumber = phoneNumber;
+       this.balance = balance;
+         
+    }
 
-       
-    }
-    public Store(Account account, String name, String address, String phoneNumber){
-       super(1);
-       this.name = name;
-       this.address = address;
-       this.phoneNumber = phoneNumber;
-        
-    }
     
     public boolean validate(){
         Matcher matcher1 = REGEX_NAME.matcher(name);
@@ -52,15 +47,7 @@ public class Store extends Recognizable implements FileParser
         
         
     }
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
+   
 
    
 }

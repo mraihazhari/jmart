@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Coupon implements FileParser
+public class Coupon 
 {
     enum Type{
         DISCOUNT, REBATE;
@@ -35,7 +35,7 @@ public class Coupon implements FileParser
         return used;
     }
     
-    public boolean canApply(PriceTag priceTag){
+    public boolean canApply(Treasury priceTag){
         if(priceTag.getAdjustedPrice() >= minimum){
             return true;
         }
@@ -43,7 +43,7 @@ public class Coupon implements FileParser
             return false;
         }
     }
-    public double apply(PriceTag priceTag){
+    public double apply(Treasury priceTag){
         this.used = true;
         if(this.type == type.REBATE){
            return(priceTag.getAdjustedPrice() - this.cut); 
@@ -53,14 +53,6 @@ public class Coupon implements FileParser
         }
         
     }
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
+ 
     
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author (your name)
  * @version (a version number or a date)
  */
-public abstract class Invoice extends Recognizable implements FileParser
+public abstract class Invoice extends Recognizable 
 {
   
     enum Status{
@@ -37,7 +37,6 @@ public abstract class Invoice extends Recognizable implements FileParser
     }
     
     protected Invoice(int id, int buyerId, int productId){
-        super(id);
         this.buyerId = buyerId;
         this.productId = productId;
         this.complaintId = complaintId;
@@ -51,15 +50,7 @@ public abstract class Invoice extends Recognizable implements FileParser
         return 0.0;
     }
     
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
+  
     
     
 }

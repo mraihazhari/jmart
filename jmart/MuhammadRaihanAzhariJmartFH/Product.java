@@ -7,7 +7,7 @@ package MuhammadRaihanAzhariJmartFH;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Product implements FileParser
+public class Product 
 {
     public int id;
     public int idCounter;
@@ -15,12 +15,12 @@ public class Product implements FileParser
     public String name;
     public int weight;
     public boolean conditionUsed;
-    public PriceTag priceTag;
+    public Treasury priceTag;
     public ProductCategory category ;
     public ProductRating rating; 
-    public Shipment.MultiDuration multiDuration;
+    public Shipment multiDuration;
     
-    public Product(int id, int storeId, String name, int weight, boolean conditionUsed, PriceTag priceTag, ProductCategory category, Shipment.MultiDuration multiDuration){
+    public Product(int id, int storeId, String name, int weight, boolean conditionUsed, Treasury priceTag, ProductCategory category, Shipment multiDuration){
         this.idCounter = idCounter + 1;
         this.id = idCounter;
         this.name = name;
@@ -29,22 +29,13 @@ public class Product implements FileParser
         this.category = category;
         this.priceTag = priceTag;
     }
-    public Product(int id,Store store,String name, int weight, boolean conditionUsed,PriceTag priceTag, ProductCategory category){
+    public Product(int id,Store store,String name, int weight, boolean conditionUsed,Treasury priceTag, ProductCategory category){
         
     }
     
     public String toString(){
-        this.name = "Harry Potter";
-        return "a";
+        return "ID : " + this.id + "Nama : " + this.name + "Weight : " + this.weight + "Category : " + this.category + "Price tag : " + this.priceTag ;
     }
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
+ 
 
 }

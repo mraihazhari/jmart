@@ -12,9 +12,9 @@ public class Recognizable implements Comparable<Recognizable>
    
     public int id;
 
-    protected Recognizable(int id)
+    protected Recognizable()
     {
-        this.id = id;
+        id = 1;
     }
     
     public static  int getClosingId() {

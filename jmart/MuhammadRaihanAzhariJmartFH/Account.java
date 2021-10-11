@@ -10,17 +10,19 @@ import java.util.regex.Pattern;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Account extends Recognizable implements FileParser
+public class Account extends Recognizable 
 {
     String name;
     String email;
     String password;
+    Store store;
+    double balance;
+    
     public static final Pattern REGEX_EMAIL = Pattern.compile("^([A-Za-z0-9|.|*|~|_|&]*?)@[A-Za-z0-9][A-Za-z0-9|-|.]");
     public static final Pattern REGEX_PASSWORD = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,100}$");
     
     public Account(int id, String name, String email, String password)
     {  
-       super(id);
        this.name = name;
        this.email = email;
        this.password = password;
@@ -41,15 +43,6 @@ public class Account extends Recognizable implements FileParser
         
     }
     
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
     
     public String toString(){
         validate();

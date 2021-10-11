@@ -11,7 +11,7 @@ import java.text.*;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Complaint extends Recognizable implements FileParser
+public class Complaint extends Recognizable 
 {
     // instance variables - replace the example below with your own
     public String desc;
@@ -20,22 +20,13 @@ public class Complaint extends Recognizable implements FileParser
     
     
     public Complaint (int id, String desc){
-        super(id);
         this.desc = desc;
         this.date = new Date();
     }
     public String toString(){
         return "date="+ESTIMATION_FORMAT.format(date.getTime())+",desc="+desc;
     }
-    public boolean read (String content){
-        return false;
-    }
-    public Object write(){
-        return null;
-    }
-    public Object newInstance(String content){
-        return 0;
-    }
+ 
     
    
 
