@@ -9,30 +9,39 @@ package MuhammadRaihanAzhariJmartFH;
  */
 
 import java.util.Scanner;
-public class Jmart
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import com.google.gson.*;
+
+class Jmart
 {
   
-	public static Product createProduct(){
-         return null;
-     }
-     public static Coupon createCoupon(){
-         Coupon kupon1 = new Coupon("GratisOngkir", 12345, Coupon.Type.REBATE, 1000.0, 500.0);
-         kupon1.isUsed();
-         return kupon1;
-     }
-     public static Product ShipmentDuration(){
-         return null;
-     }
+	class Country
+	{
+		public String name;
+		public int population;
+		public List<String>listOfStates;
+		
+	}
     
-
-    public static void main(String[] args){
-    	System.out.println("Hello From eclipe");
-        Account akun1 = new Account(1, "Azhari", "azhariraihan2002@gmail.com", "luLusoop123");
-        System.out.println(akun1.toString());
-        Complaint komplen1 = new Complaint(1, "Kurir Salah Alamat");
-        System.out.println(komplen1.toString());
-    }
-    
+	public static void main(String[] args) {
+		String filepath = "D:/#KAKAK/UI/OOP/Praktikum/Praktikum Modul 1/jmart/lib/city.json";
+		Gson gson = new Gson();
+		try
+		{
+			BufferedReader br = new BufferedReader (new FileReader(filepath));
+			Country input = gson.fromJson(br,  Country.class);
+			System.out.println("name: " + input.name);
+			System.out.println("population: " + input.population);
+			System.out.println("states:");
+			input.listOfStates.forEach(state -> System.out.println(state));
+		}
+		catch(IOException e) {
+			e.printStackTrace();
+		}
+	}
    
     
 }
