@@ -79,30 +79,95 @@ public class Algorithm {
 	public static <T> int count (T[] a, Predicate<T> t){
 		int x = 0;
 		
+		if(a.equals(false)) {
+			return 0;
+		}
+		else {
 			for(T i : a) {
 				x++;
 			}
 			return x;
-	
+		}
+		
 	}
 	
 	public static <T> int count(Iterable<T> t, Predicate<T> a) {
-		return 0;
+		int x = 0;
+		if(a.equals(false)) {
+			return 0;
+		}
+		else {
+			for(T i : t) {
+				x++;
+			}
+		}
+		return x;
 	}
 	
 	public static <T> int count(Iterator<T> t, Predicate<T> a) {
-		return 0;
+		int x = 0;
+		if(a.equals(false)) {
+			return 0;
+		}
+		else {
+			while(t.hasNext()) {
+				x++;
+			}
+			return x;
+		}
 	}
 	
-	public static <T> Predicate<T> find(Iterable<T> t, T object){
+	public static <T> T find (T[] a, T object) {
+		for(T elemen : a) {
+			if(elemen.equals(object)) {
+				return elemen;
+			}
+		}
 		return null;
 	}
 	
-	public static <T> Predicate<T> find(Iterator<T> t, T object){
+	public static <T> T find(Iterable<T> t, T object){
+		for(T elemen : t) {
+			if(elemen.equals(object)) {
+				return elemen;
+			}
+		}
 		return null;
 	}
 	
-	public static <T> Predicate<T> find(T[] a, Predicate<T> t) {
+	public static <T> T find(Iterator<T> t, T object){
+		while(t.hasNext()) {
+			if(t.next().equals(object)) {
+				return t.next();
+			}
+		}
+		return null;
+	}
+	
+	public static <T> T find(T[] a, Predicate<T> t) {
+		for(T elemen : a) {
+			if(elemen.equals(t)) {
+				return elemen;
+			}
+		}
+		return null;
+	}
+	
+	public static <T> T find (Iterable<T> a, Predicate<T> t) {
+		for (T elemen : a) {
+			if(elemen.equals(t)) {
+				return elemen;
+			}
+		}
+		return null;
+	}
+	
+	public static <T> T find (Iterator<T> a, Predicate<T> t) {
+		while(a.hasNext()) {
+			if(a.next().equals(t)) {
+				return a.next();
+			}
+		}
 		return null;
 	}
 	

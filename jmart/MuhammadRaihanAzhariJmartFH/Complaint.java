@@ -11,7 +11,7 @@ import java.text.*;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Complaint extends Recognizable 
+public class Complaint extends Serializable
 {
     // instance variables - replace the example below with your own
     public String desc;

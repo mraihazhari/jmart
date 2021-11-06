@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author (your name)
  * @version (a version number or a date)
  */
-public abstract class Invoice extends Recognizable 
+public abstract class Invoice extends Serializable
 {
   
     enum Status{

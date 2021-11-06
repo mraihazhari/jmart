@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Store extends Recognizable
+public class Store extends Serializable
 {
     
     public String name;

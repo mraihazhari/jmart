@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Account extends Recognizable 
+public class Account extends Serializable
 {
     String name;
     String email;
@@ -26,7 +26,7 @@ public class Account extends Recognizable
        this.name = name;
        this.email = email;
        this.password = password;
-       this.id = id;
+       this.id = super.id;
     }
     
      public boolean validate(){
