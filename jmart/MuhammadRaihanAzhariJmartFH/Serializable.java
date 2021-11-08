@@ -22,28 +22,28 @@ public class Serializable implements Comparable<Serializable>
 	    
 	    protected Serializable()
 	    {
+	    	Integer counter = mapCounter.get(getClass());
+	    	if (counter == null) {
+	    		mapCounter.put(getClass(), 0);
+	    		this.id = 0;
+	    	}
+	    	else {
+	    		mapCounter.put(getClass(), counter + 1);
+	    		this.id = counter + 1;
+	    	}
 	    	
-	    	mapCounter.put(getClass(), id);
-	    	this.id = id++;
+	  
 	    	
 	    }
 	    
 	    public static <T> Integer getClosingId(Class<T> clazz) {
-	    	 if(clazz.isAssignableFrom(Serializable.class)){
-	             return 0;
-	         }
-	    	 else{
-	             return 1;
-	         }
+	    	
+	    	return mapCounter.get(clazz);
 	    }
 	    
 	    public static <T> Integer setClosingId(Class<T> clazz, int id) {
-	    	if(clazz.isAssignableFrom(Serializable.class)){
-	            return 0;
-	          }
-	    	else{
-	            return 1;
-	         }
+	    	
+	    	 return mapCounter.put(clazz, id);
 	    }
 	    
 	   public boolean equals(Serializable serializable){

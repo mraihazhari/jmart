@@ -9,32 +9,32 @@ package MuhammadRaihanAzhariJmartFH;
  */
 public class Product 
 {
-    public int id;
-    public int idCounter;
-    public int storeId;
-    public String name;
-    public int weight;
-    public boolean conditionUsed;
-    public Treasury priceTag;
-    public ProductCategory category ;
-    public ProductRating rating; 
-    public Shipment multiDuration;
+   public int accountId;
+   public ProductCategory category;
+   public boolean conditionUsed;
+   public double discount;
+   public String name;
+   public double price;
+   public byte shipmentPlans;
+   public int weight;
+   
+
     
-    public Product(int id, int storeId, String name, int weight, boolean conditionUsed, Treasury priceTag, ProductCategory category, Shipment multiDuration){
-        this.idCounter = idCounter + 1;
-        this.id = idCounter;
+    public Product(int accountId, String name, int weight, boolean conditionUsed, double price, double discount, ProductCategory category, byte shipmentPlans){
+        this.accountId = accountId;
         this.name = name;
         this.weight = weight;
         this.conditionUsed = conditionUsed;
         this.category = category;
-        this.priceTag = priceTag;
-    }
-    public Product(int id,Store store,String name, int weight, boolean conditionUsed,Treasury priceTag, ProductCategory category){
+        this.price = price;
+        this.shipmentPlans = shipmentPlans;
+        this.discount = discount;
         
     }
+   
     
     public String toString(){
-        return "ID : " + this.id + "Nama : " + this.name + "Weight : " + this.weight + "Category : " + this.category + "Price tag : " + this.priceTag ;
+    	return "name: " + (String)this.name + "\n" + "weight: " + (int)this.weight + "\n" + "conditionUsed: " +  (boolean)this.conditionUsed + "Discount: " + (Double)this.discount + "\n" + "Category: " + this.category + "\n" + "Price: " + (double)this.price + "\n" + "ShipmentPlans: " + this.shipmentPlans;
     }
  
 

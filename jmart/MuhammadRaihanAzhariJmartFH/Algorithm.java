@@ -2,6 +2,8 @@ package MuhammadRaihanAzhariJmartFH;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,37 +13,25 @@ public class Algorithm {
 		
 	}
 	
-	public static <T> List<T> collect(T[] a, T obejct) {
-		List<T> list = new ArrayList<>();
-		return list;
+	public static <T> List<T> collect(T[] a, T object) {
+		final Iterator<T>iterator = Arrays.stream(a).iterator();
+        return collect(iterator, object);
 	}
 	
 	public static <T> List<T> collect (Iterable<T> iterable, T object) {
-		List<T> list = new ArrayList<>();
-		int x = 0;
-		for(Object i : iterable) {
-			x++;
-		}
-		return list;
+		final Iterable<T>element = (Iterable<T>) iterable.iterator();
+        return collect(element, object);
 	}
 	
 	public static <T> List<T> collect(Iterator<T> t, T object) {
 		
-		List<T> list = new ArrayList<>();int x = 0;
-		while(t.hasNext()) {
-			x++;
-		}
-		return list;
+		final Predicate<T> predicate = object::equals;
+        return collect(t, object);
 	}
 	
 	public static <T> List<T> collect (T[] a, Predicate<T> t){
-		List<T> list = new ArrayList<>();
-		int x = 0;
-		
-			for(T i : a) {
-				x++;
-			}
-			return list;
+		 final Iterator<T> iterate = Arrays.stream(a).iterator();
+	      return collect(iterate, t);
 	
 	}
 	
@@ -51,8 +41,12 @@ public class Algorithm {
 	}
 	
 	public static <T> List<T> collect(Iterator<T> t, Predicate<T> a) {
-		List<T> list = new ArrayList<>();
-		return list;
+		int x = 0;
+        while(t.hasNext()){
+            x++;
+        }
+        final Predicate<T> predicate = a::equals;
+        return collect(t, a);
 	}
 	
 	
@@ -172,35 +166,161 @@ public class Algorithm {
 	}
 	
 	public static <T> boolean exists(T[] a, T object) {
-		return true;
+		for(T elemen : a) {
+			if(a.equals(object)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static <T> boolean exists(Iterable<T> a, T object) {
-		return true;
+		for(T elemen : a) {
+			if(a.equals(object)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static <T> boolean exists(Iterator<T> a, T object) {
-		return true;
+		while(a.hasNext()) {
+			if(a.next().equals(object)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static <T> boolean exists(T[] a, Predicate<T> b) {
-		return true;
+		for(T elemen : a) {
+			if(a.equals(b)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public static <T> boolean exists(Iterable<T> a, Predicate<T> b) {
-		return true;
+		for(T elemen : a) {
+			if(a.equals(b)) {
+				return true;
+			}
+		}
+		return false;
+	
 	}
 	public static <T> boolean exists(Iterator<T> a, Predicate<T> b) {
-		return true;
+		while(a.hasNext()) {
+			if(a.next().equals(b)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
-	public static <T> Predicate<T> max(T first, T second){
-		return null;
-	}
-	
-	public static <T> Predicate<T> min(T first, T second){
-		return null;
-	}
+	public static <T> T max(T[] a){
+        int max = 0;
+        T maxT = null;
+        for (T t : a) {
+            if (t.hashCode() > max) {
+                max = t.hashCode();
+                maxT = t;
+            }
+        }
+        return maxT;
+    }
+
+    public static <T> T max(Iterable<T> a){
+        int max = 0;
+        T maxT = null;
+        for (T elemen : a) {
+            if (elemen.hashCode() > max) {
+                max = elemen.hashCode();
+                maxT = elemen;
+            }
+        }
+        return maxT;
+    }
+
+    public static <T> T max(Iterator<T> a){
+        int max = 0;
+        T maxT = null;
+        while (a.hasNext()) {
+            if (a.next().hashCode() > max) {
+                max = a.next().hashCode();
+                maxT = a.next();
+            }
+        }
+        return maxT;
+    }
+
+    public static <T> T max(T first, T second, Comparator<?super T> comparator){
+        int result = ((Comparable<T>) first).compareTo(second);
+        return result < -1? second : first;
+    }
+
+    public static <T> T max(T[] a, Comparator<?super T> comparator){
+        return null;
+    }
+
+    public static <T> T max(Iterable<T> iterable, Comparator<?super T> comparator){
+        T maxT = null;
+        for(T t : iterable) {
+            if (((Comparable<T>) maxT).compareTo(t) < 0) {
+                maxT = t;
+            }
+        }
+        return maxT;
+    }
+
+    public static <T> T min(T first, T second) {
+        if(first.hashCode()>second.hashCode()){
+            return second;
+        }else {
+            return first;
+        }
+    }
+
+    public static <T> T min(T[] a){
+        int min = a[0].hashCode();
+        T minT = null;
+        for (T t : a) {
+            if (t.hashCode() > min) {
+                min = t.hashCode();
+                minT = t;
+            }
+        }
+        return minT;
+    }
+
+    public static <T> T min(Iterable<T> a){
+        int min = a.hashCode();
+        T minT = null;
+        for (T t : a) {
+            if (t.hashCode() > min) {
+                min = t.hashCode();
+                minT = t;
+            }
+        }
+        return minT;
+    }
+
+    public static <T> T min(Iterator<T> a){
+        int min = a.next().hashCode();
+        T minT = null;
+        while (a.hasNext()) {
+            if (a.next().hashCode() > min) {
+                min = a.next().hashCode();
+                minT = a.next();
+            }
+        }
+        return minT;
+    }
+
+    public static <T extends Comparable<?super T>> T min(T first, T second, Comparator<?super T> comparator){
+        return null;
+    }
 	
 	
 	

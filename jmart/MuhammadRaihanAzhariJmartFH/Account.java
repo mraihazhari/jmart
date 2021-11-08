@@ -18,8 +18,8 @@ public class Account extends Serializable
     Store store;
     double balance;
     
-    public static final Pattern REGEX_EMAIL = Pattern.compile("^([A-Za-z0-9|.|*|~|_|&]*?)@[A-Za-z0-9][A-Za-z0-9|-|.]");
-    public static final Pattern REGEX_PASSWORD = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,100}$");
+    public static final String REGEX_EMAIL = "^([A-Za-z0-9|.|*|~|_|&]*?)@[A-Za-z0-9][A-Za-z0-9|-|.]";
+    public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,100}$";
     
     public Account(int id, String name, String email, String password)
     {  
@@ -30,8 +30,10 @@ public class Account extends Serializable
     }
     
      public boolean validate(){
-        Matcher matcher1 = REGEX_EMAIL.matcher(email);
-        Matcher matcher2 = REGEX_PASSWORD.matcher(password);
+    	Pattern pattern1 = Pattern.compile(REGEX_EMAIL);
+    	Pattern pattern2 = Pattern.compile(REGEX_PASSWORD);
+        Matcher matcher1 = pattern1.matcher(email);
+        Matcher matcher2 = pattern2.matcher(password);
         
         if(matcher1.find() && matcher2.find() == true){
             return true;
