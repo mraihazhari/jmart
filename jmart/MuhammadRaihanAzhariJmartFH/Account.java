@@ -29,6 +29,14 @@ public class Account extends Serializable
        this.id = super.id;
     }
     
+    public Account(String name, String email, String password)
+    {  
+       this.name = name;
+       this.email = email;
+       this.password = password;
+   
+    }
+    
      public boolean validate(){
     	Pattern pattern1 = Pattern.compile(REGEX_EMAIL);
     	Pattern pattern2 = Pattern.compile(REGEX_PASSWORD);
