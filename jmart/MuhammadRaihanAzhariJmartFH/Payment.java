@@ -29,7 +29,7 @@ public class Payment extends Invoice
     }
     
     public static class Record{
-        public Status status;
+        public static Status status;
         public Date date;
         public String message;
         
