@@ -20,8 +20,17 @@ import java.util.Iterator;
 import java.lang.reflect.Type;
 import com.google.gson.reflect.TypeToken;
 
+import MuhammadRaihanAzhariJmartFH.Invoice.Status;
+
 class Jmart
 {
+	
+	public static long DELIVERED_LIMIT_MS = 1000;
+	public static long ON_DELIVERY_LIMIT_MS = 2000;
+	public static long ON_PROGRESS_LIMIT_MS = 3000;
+	public static long WAITING_CONF_LIMIT_MS = 4000;
+	
+	
 	
 	public static List<Product> filterByAccountId (List<Product> list, int accountId, int page, int pageSize){
 		return paginate(list, page, pageSize, product -> product.accountId == accountId);
@@ -85,20 +94,34 @@ class Jmart
 	public static void main(String[] args) {
 		try
 		{
+			JsonTable<Payment> table = new JsonTable<> (Payment.class, "randomPaymentList.json");
+			ObjectPoolThread<Payment> paymentPool = new ObjectPoolThread<Payment>("Thread-PP", Jmart::paymentTimeKeeper);
+			paymentPool.start();
+			table.forEach(payment -> paymentPool.add((Payment) payment));
+			while(paymentPool.size() != 0) {
+				paymentPool.exit();
+			}
+			while (paymentPool.isAlive());
+			System.out.println("Thread exited sucessfully");
 			
-			String filepath = "D:/#KAKAK/UI/OOP/Praktikum/Praktikum Modul 1/jmart/lib/account.json";
-			
-			JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
-			tableAccount.add(new Account("name", "email", "password"));
-			tableAccount.writeJson();
-			
-			tableAccount = new JsonTable<>(Account.class, filepath);
-			tableAccount.forEach(account->System.out.println(account.toString()));
+			Gson gson = new Gson();
 			
 		}
 		catch (Throwable t) {
 			t.printStackTrace();
 		}
+	}
+	
+	public static boolean paymentTimeKeeper (Payment payment) {
+		
+		
+		
+		
+		
+				
+		
+		
+		return true;
 	}
    
     

@@ -1,5 +1,9 @@
 package MuhammadRaihanAzhariJmartFH;
 
+import java.util.ArrayList;
+import java.util.Date;
+
+import MuhammadRaihanAzhariJmartFH.Invoice.Status;
 
 /**
  * Write a description of class Recognizable here.
@@ -10,26 +14,42 @@ package MuhammadRaihanAzhariJmartFH;
 public class Payment extends Invoice
 {
    
-    public int productCount;
+    public static Date date;
+	public int productCount;
     public Shipment shipment;
+    public ArrayList <Record> history;
+    
+    
   
     public Payment(int id, int buyerId, int productId, int productCount, Shipment shipment){
         super(id, buyerId, productId);
         this.productCount = productCount;
         this.shipment = shipment;
+        
+    }
+    
+    public static class Record{
+        public Status status;
+        public Date date;
+        public String message;
+        
+        public Record(Status status, String message) {
+        	this.date = new Date();
+        	this.status = status;
+        	this.message = message;
+        }
     }
     
     public Invoice perform(){
         return null;
     }
     
-    public double getTotalPay(){
+    public double getTotalPay(Product product){
         return 0.0;
     }
     public boolean validate(){
         return true;
     }
-   
-
+    
    
 }

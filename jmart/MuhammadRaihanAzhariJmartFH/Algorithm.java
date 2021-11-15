@@ -321,8 +321,26 @@ public class Algorithm {
     public static <T extends Comparable<?super T>> T min(T first, T second, Comparator<?super T> comparator){
         return null;
     }
-	
-	
+    
+    public static <T> List<T> paginate (List<Product> list, int page, int pageSize, Predicate<Product> pred){
+    	int iteration = 0;
+		int find_product = 0;
+		int demand = page * pageSize;
+		List<T> listHasil = new ArrayList<>(pageSize);
+	    while(iteration < list.size() && find_product < demand) {
+	    	if(pred.predicate(list.get(iteration))) {
+	    		demand++;
+	    	}
+	    	iteration++;
+	    }
+	    for(int i = iteration; i < list.size() && listHasil.size() < pageSize; i++) {
+	    	if(pred.predicate(list.get(i))) {
+	    		listHasil.add((T) list.get(i));
+	    	}
+	    }
+	    
+	    return listHasil;
+    }
 	
 	
 
