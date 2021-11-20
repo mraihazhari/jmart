@@ -22,16 +22,15 @@ import com.google.gson.reflect.TypeToken;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.MuhammadRaihanAzhariJmartFH.Invoice.Status;
+import com.MuhammadRaihanAzhariJmartFH.dbjson.JsonDBEngine;
 
 
 
 @SpringBootApplication
 class Jmart
 {
-	
-	
-	
 	/*
+	
 	public static long DELIVERED_LIMIT_MS = 1000;
 	public static long ON_DELIVERY_LIMIT_MS = 2000;
 	public static long ON_PROGRESS_LIMIT_MS = 3000;
@@ -97,11 +96,17 @@ class Jmart
 		  return gson.fromJson(br, userListType);
 		  
 	}
-    
+	
+	
     */
+    
 	public static void main(String[] args) {
 		
 		SpringApplication.run(Jmart.class, args);
+		
+			JsonDBEngine.Run(Jmart.class);
+			SpringApplication.run(Jmart.class, args);
+			Runtime.getRuntime().addShutdownHook(new Thread( () -> JsonDBEngine.join() ));
 		
 		/*
 		try
@@ -123,7 +128,9 @@ class Jmart
 		catch (Throwable t) {
 			t.printStackTrace();
 		}
+		
 	}
+	
 	
 	public static boolean paymentTimeKeeper (Payment payment) {
 		
@@ -131,6 +138,10 @@ class Jmart
 		return true;
 	}
 	*/
-  
-	} 
+	}
 }
+	
+
+	
+  
+

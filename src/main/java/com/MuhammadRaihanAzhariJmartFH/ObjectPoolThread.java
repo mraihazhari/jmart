@@ -31,7 +31,8 @@ public class ObjectPoolThread<T> extends Thread{
 	}
 	
 	public int size() {
-		return ((Vector<T>) routine).size();
+		//return ((Vector<T>) routine).size();
+		return 0;
 	}
 	
 	

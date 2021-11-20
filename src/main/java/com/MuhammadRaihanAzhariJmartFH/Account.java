@@ -16,6 +16,7 @@ public class Account extends Serializable
     String email;
     String password;
     Store store;
+    int id;
     double balance;
     
     public static final String REGEX_EMAIL = "^([A-Za-z0-9|.|*|~|_|&]*?)@[A-Za-z0-9][A-Za-z0-9|-|.]";
