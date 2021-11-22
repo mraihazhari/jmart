@@ -28,10 +28,23 @@ public class AccountController implements BasicGetController<Account>
 	public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
 	
 	
+	
+	public static JsonTable<Account> accountTable;
+	
+	
+	
+	@RequestMapping("/login")
 	public Account login(String email, String password) {
+		if(accountTable.equals(password) && accountTable.equals(email)) {
+			return accountTable.get(0);
+		}
 		return null;
 	}
+	@RequestMapping("/login")
 	public Account login(String name, String email, String password) {
+		if(accountTable.equals(password) && accountTable.equals(email)) {
+			return accountTable.get(0);
+		}
 		return null;
 	}
 	
@@ -57,7 +70,7 @@ public class AccountController implements BasicGetController<Account>
 	@Override
 	public JsonTable<Account> getJsonTable() {
 		// TODO Auto-generated method stub
-		return null;
+		return accountTable;
 	}
 
 	@Override

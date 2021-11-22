@@ -7,7 +7,7 @@ package com.MuhammadRaihanAzhariJmartFH;
  * @author (Muhammad Raihan Azhari)
  * @version (25 Sept 2021)
  */
-public class Product 
+public class Product extends Serializable
 {
    public int accountId;
    public ProductCategory category;

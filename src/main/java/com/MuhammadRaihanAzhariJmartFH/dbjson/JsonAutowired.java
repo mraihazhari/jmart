@@ -15,6 +15,7 @@ import com.MuhammadRaihanAzhariJmartFH.Serializable;
  */
 @Retention(value=RetentionPolicy.RUNTIME)
 @Target(value={ElementType.FIELD})
+
 public @interface JsonAutowired
 {
 	Class<?> value();

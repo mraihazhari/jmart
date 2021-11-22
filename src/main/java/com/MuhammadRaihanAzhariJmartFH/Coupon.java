@@ -7,7 +7,7 @@ package com.MuhammadRaihanAzhariJmartFH;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Coupon 
+public class Coupon extends Serializable
 {
     enum Type{
         DISCOUNT, REBATE;
