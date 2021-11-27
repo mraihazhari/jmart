@@ -16,7 +16,7 @@ public class PaymentController implements BasicGetController<Payment>{
 	
 	
 	public boolean accept(int id) {
-		return true;
+		return false;
 	}
 	public boolean cancel(int id) {
 		return true;
