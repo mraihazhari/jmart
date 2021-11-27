@@ -19,5 +19,6 @@ import com.MuhammadRaihanAzhariJmartFH.Serializable;
 public @interface JsonAutowired
 {
 	Class<?> value();
+	
 	String filepath();
 }
