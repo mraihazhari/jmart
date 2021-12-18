@@ -34,7 +34,12 @@ public class AccountController implements BasicGetController<Account>
 	public static JsonTable<Account> accountTable;
 	
 	
-	
+	/**
+	 * 
+	 * @param email yang didafatarkan pada akun
+	 * @param password yang didaftarkan pada akun
+	 * @return jika email dan password sama dengan akun tertentu, maka kembalikan nilai tersebut
+	 */
 	@RequestMapping("/login")
 	public Account login(@RequestParam String email, @RequestParam String password){
 		
@@ -47,7 +52,13 @@ public class AccountController implements BasicGetController<Account>
 		}
 		return null;
 	}
-	
+	/**
+	 * 
+	 * @param name nama dari pemilik akin
+	 * @param email yang diguanakna oleh pemilik akun
+	 * @param password yang digunakan oleh pemilik akun
+	 * @return
+	 */
 	 @PostMapping("/register")
 	    public Account register(@RequestParam String name, @RequestParam String email,@RequestParam String password)
 	    {
@@ -61,27 +72,48 @@ public class AccountController implements BasicGetController<Account>
 	        
 	    }
 	
+	 /**
+	  * Method yang diguanakan untuk mendaftarkan toko
+	  * @param id dari toko yang didaftarkan
+	  * @param name toko dari yang didaftarkan
+	  * @param address alamat toko yang didaftarkan=
+	  * @param phoneNumber nomor telepon toko yang didaftarkan
+	  * @return
+	  */
 	@PostMapping("/{id}/registerStore")
 	public Store registerStore(int id, String name, String address, String phoneNumber) {
 		return null;
 	}
+	/**
+	 * 
+	 * @param id dari toko
+	 * @param balance saldo yang akan di top up dalam toko
+	 * @return
+	 */
 	@PostMapping("/{id}/topUp")
 	public boolean topUp(int id, double balance) {
 		return true;
 	}
-
+	/**
+	 * Getter untuk mendapatkan id dari toko
+	 * @param  id dari too
+	 */
 	@Override
 	public List<Account> getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * getter dari accountTable
+	 */
 	@Override
 	public JsonTable<Account> getJsonTable() {
 		// TODO Auto-generated method stub
 		return accountTable;
 	}
-
+	/**
+	 * Getter dari page
+	 */
 	@Override
 	public Account getPage(int page, int pageSize) {
 		// TODO Auto-generated method stub

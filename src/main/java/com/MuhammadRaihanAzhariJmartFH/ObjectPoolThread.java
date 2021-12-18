@@ -1,7 +1,17 @@
 package com.MuhammadRaihanAzhariJmartFH;
 
+
+/*
+ * @author Muhammad Raihan Azhari
+ */
+
 import java.util.Vector;
 import java.util.function.Function;
+
+
+/*
+ * Class untuk melakukan multi threading
+ */
 
 public class ObjectPoolThread<T> extends Thread{
 

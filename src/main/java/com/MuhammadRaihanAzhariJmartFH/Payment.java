@@ -20,19 +20,32 @@ public class Payment extends Invoice
     public ArrayList <Record> history;
     
     
-  
+    /**
+     * 
+     * @param id variabel untuk menentukan id
+     * @param buyerId variabel untuk id pembeli
+     * @param productId variabel untuk id dari produk
+     * @param productCount variabel untuk menghitung product
+     * @param shipment variable untuk jenis pengiriman yang digunakan
+     */
     public Payment(int id, int buyerId, int productId, int productCount, Shipment shipment){
+    	
         super(id, buyerId, productId);
         this.productCount = productCount;
         this.shipment = shipment;
         
     }
     
+   
     public static class Record{
         public static Status status;
         public Date date;
         public String message;
-        
+        /**
+         * 
+         * @param status status dari pengiriman
+         * @param message pesan untuk mendeskripsikan keadaan pengiriman
+         */
         public Record(Status status, String message) {
         	this.date = new Date();
         	this.status = status;

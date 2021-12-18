@@ -17,7 +17,13 @@ public class CouponController implements BasicGetController<Coupon>{
 	
 
 	public static JsonTable<Coupon> couponTable;
-	
+	/**
+	 * 
+	 * @param id dari kupon
+	 * @param price harga dari suatu produk
+	 * @param discount yang diberikan untuk suatu produk
+	 * @return jika diskon dapat digunakan return true, jika tidak return false
+	 */
 	@RequestMapping("/{id}/canApply")
 	public boolean canApply(int id, double price, double discount) {
 		if(couponTable.get(id).canApply(null)) {
@@ -27,11 +33,22 @@ public class CouponController implements BasicGetController<Coupon>{
 			
 	}
 	
+	/**
+	 * 
+	 * @param page
+	 * @param pageSize
+	 * @return
+	 */
 	@RequestMapping("/getAvailable")
 	public List<Coupon> getAvailable (int page, int pageSize){
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping("/{id}/isUsed")
 	public boolean isUsed(int id) {
 		if(couponTable.get(id).isUsed()) {
@@ -42,13 +59,17 @@ public class CouponController implements BasicGetController<Coupon>{
 		}
 	}
 	
-	
+	/**
+	 * Getter untuk nomor id pada kupon
+	 */
 	@Override
 	public List<Coupon> getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * Getter untuk couponTable
+	 */
 	@Override
 	public JsonTable<Coupon> getJsonTable() {
 		// TODO Auto-generated method stub

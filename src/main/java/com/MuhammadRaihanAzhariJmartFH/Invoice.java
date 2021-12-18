@@ -8,12 +8,12 @@ import java.util.ArrayList;
 /**
  * Write a description of class Invoice here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Muhammad Raihan Azhari
  */
 public abstract class Invoice extends Serializable
 {
   
+	
     enum Status{
         WAITING_CONFIRMATION, CANCELLED, ON_PROGRESS, ON_DELIVERY, COMPLAINT, FINISHED, FAILED, DELIVERED;
     }
@@ -29,7 +29,11 @@ public abstract class Invoice extends Serializable
     public static Status status;
     
     
-    
+    /**
+     * Constructor dari Invoice
+     * @param buyerId untuk menentukan id dari pembeli
+     * @param productId untuk menentukan id dari product
+     */
     protected Invoice(int id, int buyerId, int productId){
         this.buyerId = buyerId;
         this.productId = productId;

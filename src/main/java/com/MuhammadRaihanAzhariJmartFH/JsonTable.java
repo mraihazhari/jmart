@@ -32,12 +32,18 @@ public class JsonTable<T> extends Vector<T>
         }
         catch (FileNotFoundException e) {}
     }
-
+    
+    /*
+     * Method untuk menulis ke dalam file jika sudah ada
+     */
     public void writeJson() throws IOException
     {
         writeJson(this, this.filepath);
     }
-
+    
+    /*
+     * Method untuk membuat file jika tidak ada
+     */
     public static void writeJson(Object object, String filepath) throws IOException
     {
         File file = new File(filepath);
@@ -52,7 +58,10 @@ public class JsonTable<T> extends Vector<T>
         writer.write(gson.toJson(object));
         writer.close();
     }
-
+    
+    /*
+     * Method yang diguankan untuk membaca file dari json
+     */
     public static <T> T readJson(Class<T> clazz, String filepath) throws FileNotFoundException
     {
         final JsonReader reader = new JsonReader(new FileReader(filepath));

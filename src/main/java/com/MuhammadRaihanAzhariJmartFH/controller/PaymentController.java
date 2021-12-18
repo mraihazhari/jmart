@@ -31,13 +31,17 @@ public class PaymentController implements BasicGetController<Payment>{
 		return true;
 	}
 	*/
-
+	/**
+	 * Getter utnuk id dari payment
+	 */
 	@Override
 	public List<Payment> getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * Getter untuk jsontable
+	 */
 	@Override
 	public JsonTable<Payment> getJsonTable() {
 		// TODO Auto-generated method stub

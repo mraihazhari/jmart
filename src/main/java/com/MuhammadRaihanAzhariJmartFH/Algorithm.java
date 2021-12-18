@@ -1,6 +1,16 @@
 package com.MuhammadRaihanAzhariJmartFH;
 
 
+/**
+ * Write a description of class Recognizable here.
+ *
+ * @author (Muhammad Raihan Azhari)
+ * @version (25 Sept 2021)
+ * 
+ */
+
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;

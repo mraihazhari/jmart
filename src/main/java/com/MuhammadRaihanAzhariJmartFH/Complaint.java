@@ -13,16 +13,17 @@ import java.text.*;
  */
 public class Complaint extends Serializable
 {
-    // instance variables - replace the example below with your own
+   
     public String desc;
     public Date date;
     public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
     
-    
+    /**Constructor dengan parameter id dari akun serta descriptionya*/
     public Complaint (int id, String desc){
         this.desc = desc;
         this.date = new Date();
     }
+    /**Konversi ke string*/
     public String toString(){
         return "date="+ESTIMATION_FORMAT.format(date.getTime())+",desc="+desc;
     }

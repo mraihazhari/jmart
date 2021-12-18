@@ -19,7 +19,17 @@ public class Product extends Serializable
    public int weight;
    
 
-    
+    /**
+     * Construtctor Product
+     * @param accountId Id dari pemilik akun
+     * @param name nama dari produk
+     * @param weight berat dari produk
+     * @param conditionUsed apakah produk sudah digunakan atau belum
+     * @param price harga dari produk yang akan diberi
+     * @param discount diskon yang diberkan untuk pembelia produk
+     * @param category kategory dari produk
+     * @param shipmentPlans metode pengiriman barang yang akan digunakan
+     */
     public Product(int accountId, String name, int weight, boolean conditionUsed, double price, double discount, ProductCategory category, byte shipmentPlans){
         this.accountId = accountId;
         this.name = name;
@@ -32,7 +42,9 @@ public class Product extends Serializable
         
     }
    
-    
+    /**
+     * Konversi ke string
+     */
     public String toString(){
     	return "name: " + (String)this.name + "\n" + "weight: " + (int)this.weight + "\n" + "conditionUsed: " +  (boolean)this.conditionUsed + "Discount: " + (Double)this.discount + "\n" + "Category: " + this.category + "\n" + "Price: " + (double)this.price + "\n" + "ShipmentPlans: " + this.shipmentPlans;
     }
