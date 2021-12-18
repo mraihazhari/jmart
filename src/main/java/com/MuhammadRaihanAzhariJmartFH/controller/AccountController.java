@@ -1,16 +1,18 @@
 package com.MuhammadRaihanAzhariJmartFH.controller;
 
 
-import com.MuhammadRaihanAzhariJmartFH.Account;
-import com.MuhammadRaihanAzhariJmartFH.JsonTable;
-import com.MuhammadRaihanAzhariJmartFH.Store;
 import com.MuhammadRaihanAzhariJmartFH.dbjson.JsonAutowired;
 
 import java.lang.annotation.Target;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
+
+import com.MuhammadRaihanAzhariJmartFH.Account;
+import com.MuhammadRaihanAzhariJmartFH.JsonTable;
+import com.MuhammadRaihanAzhariJmartFH.Store;
 import com.MuhammadRaihanAzhariJmartFH.dbjson.*;
 
 
@@ -28,30 +30,37 @@ public class AccountController implements BasicGetController<Account>
 	public static final Pattern REGEX_PATTERN_PASSWORD = Pattern.compile(REGEX_PASSWORD);
 	
 	
-	
+	 @JsonAutowired(value = Account.class, filepath = "account.json")
 	public static JsonTable<Account> accountTable;
 	
 	
 	
 	@RequestMapping("/login")
-	public Account login(String email, String password) {
-		if(accountTable.equals(password) && accountTable.equals(email)) {
-			return accountTable.get(0);
+	public Account login(@RequestParam String email, @RequestParam String password){
+		
+		for(Account account : getJsonTable())
+		{
+		if(account.email.equals(email) && account.password.equals(password))
+		{
+		    return account;
 		}
-		return null;
-	}
-	@RequestMapping("/login")
-	public Account login(String name, String email, String password) {
-		if(accountTable.equals(password) && accountTable.equals(email)) {
-			return accountTable.get(0);
 		}
 		return null;
 	}
 	
-	@PostMapping("/{id}/registerStore")
-	public Store registerStore(String name, String email, String password) {
-		return null;
-	}
+	 @PostMapping("/register")
+	    public Account register(@RequestParam String name, @RequestParam String email,@RequestParam String password)
+	    {
+	        boolean emailChecker = REGEX_PATTERN_EMAIL.matcher(email).find();
+	        boolean passChecker = REGEX_PATTERN_PASSWORD.matcher(password).find();
+
+	      
+	        Account account = new Account(name,email,password,0);
+	        accountTable.add(account);
+	        return account;
+	        
+	    }
+	
 	@PostMapping("/{id}/registerStore")
 	public Store registerStore(int id, String name, String address, String phoneNumber) {
 		return null;

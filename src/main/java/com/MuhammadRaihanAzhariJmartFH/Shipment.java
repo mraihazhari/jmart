@@ -19,7 +19,7 @@ public class Shipment
     public Plan plan;
     public String receipt;
     
-    // instance variables - replace the example below with your own
+    /** instance variables - replace the example below with your own*/
     public static final Plan INSTANT = new Plan((byte)(1<<0));
     public static final Plan SAME_DAY = new Plan((byte)(1<<1));
     public static final Plan NEXT_DAY = new Plan((byte) (1<<2));
@@ -28,17 +28,19 @@ public class Shipment
     public static final SimpleDateFormat ESTIMATION_FORMAT = new SimpleDateFormat("E MMMM dd yyyy");
     
     
-    
+    /** class yang berguna agar user dapat melakukan pemilihan rencana pengiriman barang*/
     public static class Plan
     {
- 
+    	
     public byte bit;
     
+    /**setter variabel byte*/
     private Plan(byte bit){
         this.bit = bit;
     	}
     }
     
+    /**getter untuk mendapatkan estimasi waktu kedatangan*/
     public String getEstimatedArrival(Date reference){
       Calendar newDate = Calendar.getInstance();
       if(plan.bit == (1<<0)){
@@ -63,8 +65,7 @@ public class Shipment
           return ESTIMATION_FORMAT.format(newDate.getTime());
       }
    }
-        
-        
+          
         public void isDuration (Plan... args){
             for(Plan i: args){
                 plan.bit |= i.bit;
@@ -80,7 +81,7 @@ public class Shipment
         }
         
     
-    
+    /**Shipment setter*/
     public Shipment(String address, int shipmentCost, byte plan2, String receipt){
         this.address = address;
         this.shipmentCost = shipmentCost;

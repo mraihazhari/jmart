@@ -12,13 +12,14 @@ import java.util.regex.Pattern;
  */
 public class Account extends Serializable
 {
+	
     String name;
-    String email;
-    String password;
+    public String email;
+    public String password;
     Store store;
-    int id;
     double balance;
     
+    /**REGEX Email dan Password*/
     public static final String REGEX_EMAIL = "^([A-Za-z0-9|.|*|~|_|&]*?)@[A-Za-z0-9][A-Za-z0-9|-|.]";
     public static final String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,100}$";
     
@@ -44,9 +45,11 @@ public class Account extends Serializable
         Matcher matcher1 = pattern1.matcher(email);
         Matcher matcher2 = pattern2.matcher(password);
         
+        /**Jika email dan password sesuai dengan regex*/
         if(matcher1.find() && matcher2.find() == true){
             return true;
         }
+        /**Jika email dan password tidak sesuai dengan regex*/
         else{
             return false;
         }

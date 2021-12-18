@@ -13,7 +13,7 @@ import com.MuhammadRaihanAzhariJmartFH.Payment;
 @RestController
 @RequestMapping("/payment")
 public class PaymentController implements BasicGetController<Payment>{
-	
+	/*
 	
 	public boolean accept(int id) {
 		return false;
@@ -30,6 +30,7 @@ public class PaymentController implements BasicGetController<Payment>{
 	public static boolean timekeeper (Payment payment) {
 		return true;
 	}
+	*/
 
 	@Override
 	public List<Payment> getById(int id) {
@@ -48,5 +49,6 @@ public class PaymentController implements BasicGetController<Payment>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 	
 }
